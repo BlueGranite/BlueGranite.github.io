@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Michigan State Park Campgrounds</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/deldersveld/datasets/master/css/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/deldersveld/datasets/master/css/MarkerCluster.Default.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://cdn.rawgit.com/deldersveld/datasets/master/js/leaflet.markercluster.js"></script>
+    <style type="text/css">
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+  font-family: Arial, Helvetica, Verdana;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+	<script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/MichiganStateParkCampgrounds.js"></script>
+	<script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/MichiganDNRUnits.js"></script>
+    <script>
+
+		var map = L.map('map').setView([45, -84], 6);
+
+		function getBaseTiles(){
+	           
+			//CartoDB Positron (default base layer)
+			var cartoDBLight = L.tileLayer('http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+			}).addTo(map);
+				
+			//CartoDB Dark Matter
+			var cartoDBDark = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+			});
+
+			//Intentionally blank to display data only
+			var emptyTile = L.tileLayer('', {
+				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a>'
+			});
+
+			//add layers to baseTileType to include in layer switcher
+			var baseTileType = {
+				"Light": cartoDBLight,
+				"Dark": cartoDBDark,
+				"None": emptyTile
+			};
+
+			return baseTileType;
+		};
+		
+		//get base tiles
+		var baseTiles = getBaseTiles();
+		
+		//layer switcher
+		L.control.layers(baseTiles).addTo(map);
+
+		function polygonStyle(){
+		    return {
+				fillColor: '#587abc',
+				weight: 2,
+				opacity: 0.5,
+				color: 'white',
+				dashArray: '1',
+				fillOpacity: 0.3
+			}
+		};
+		
+		//add polygon overlay
+		L.geoJson(miDnrUnits, {style: polygonStyle}).addTo(map);
+		
+		//create cluster group
+		var cluster = new L.markerClusterGroup({
+			showCoverageOnHover: false
+		});
+		
+		//add circle markers to group
+		var geojson = L.geoJson(miStateParkData, {
+			pointToLayer: function (feature, geometry) {
+				var marker = L.circleMarker([geometry.lat, geometry.lng], {
+					color: '#587abc',
+					opacity: 0.5,
+					fillColor: '#587abc',
+					fillOpacity: 0.9
+				});
+
+				var content = '<table>';
+				var keys = Object.keys(feature.properties);
+				for (var i = 0; i < keys.length; i++) {
+					content += '<tr><td>' + keys[i] + '</td>' +
+							   '<td>' + feature.properties[keys[i]] + '</td></tr>';
+				}
+				content += '</table>';
+
+				marker.bindPopup(content);
+				cluster.addLayer(marker);
+				return marker;
+			}
+		});
+		
+		map.addLayer(cluster);
+		
+		//re-center map to data
+		var markerBounds = cluster.getBounds();
+        map.fitBounds(markerBounds);
+
+    </script>
+  </body>
+</html>
