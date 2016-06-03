@@ -29,7 +29,10 @@ html, body {
 	<script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/wash-dc-areas.js"></script>
     <script>
 
-		var map = L.map('map').setView([45, -84], 6);
+		var map = L.map('map',{
+			maxZoom:8
+		}
+		}).setView([45, -84], 6);
 
 		function getBaseTiles(){
 	           
