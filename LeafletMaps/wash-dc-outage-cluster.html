@@ -85,14 +85,43 @@ html, body {
 			//showCoverageOnHover: false
 		});
 		
+		function getMarkerProperties(measure){
+			var measureProperties = {};
+			
+			if(measure <= 50){
+				measureProperties.color = '#01b8aa';
+				measureProperties.radius = 10;
+			}
+			else if(measure <= 250){
+				measureProperties.color = '#3599b8';
+				measureProperties.radius = 13;
+			}
+			else if(measure <= 1000){
+				measureProperties.color = '#f2c80f';
+				measureProperties.radius = 16;
+			}
+			else if(measure <= 2500){
+				measureProperties.color = '#fe9666';
+				measureProperties.radius = 19;
+			}
+			else {
+				measureProperties.color = '#fd625e';
+				measureProperties.radius = 22;
+			}
+			
+			return measureProperties;
+		}
+		
 		//add circle markers to group
 		var geojson = L.geoJson(dcOutages, {
 			pointToLayer: function (feature, geometry) {
+				var markerProperties = getMarkerProperties(feature.properties.NumberOfCustomersAffected);
 				var marker = L.circleMarker([geometry.lat, geometry.lng], {
 					color: '#587abc',
 					opacity: 0.5,
-					fillColor: '#587abc',
-					fillOpacity: 0.9
+					fillColor: markerProperties.color,
+					fillOpacity: 0.9,
+					radius: markerProperties.radius
 				});
 
 				var content = '<table>';
