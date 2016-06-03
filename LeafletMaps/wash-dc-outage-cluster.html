@@ -56,119 +56,121 @@ html, body {
 	<script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/wash-dc-areas.js"></script>
     <script>
 
-		var map = L.map('map',{
-			minZoom: 10
-		}).setView([38.9, -77.0], 10);
+	var map = L.map('map',{
+		minZoom: 10
+	}).setView([38.9, -77.0], 10);
 
-		function getBaseTiles(){
-	           
-			//CartoDB Positron (default base layer)
-			var cartoDBLight = L.tileLayer('http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
-			}).addTo(map);
-				
-			//CartoDB Dark Matter
-			var cartoDBDark = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
-				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
-			});
-
-			//Intentionally blank to display data only
-			var emptyTile = L.tileLayer('', {
-				attribution: '<a href="http://www.blue-granite.com">BlueGranite</a>'
-			});
-
-			//add layers to baseTileType to include in layer switcher
-			var baseTileType = {
-				"Light": cartoDBLight,
-				"Dark": cartoDBDark,
-				"None": emptyTile
-			};
-
-			return baseTileType;
-		};
-		
-		//get base tiles
-		var baseTiles = getBaseTiles();
-		
-		//layer switcher
-		L.control.layers(baseTiles).addTo(map);
-
-		function polygonStyle(){
-		    return {
-				fillColor: '#587abc',
-				weight: 2,
-				opacity: 0.5,
-				color: 'white',
-				dashArray: '1',
-				fillOpacity: 0.3
-			}
-		};
-		
-		//add polygon overlay
-		L.geoJson(dcAreas, {style: polygonStyle}).addTo(map);
-		
-		//create cluster group
-		var cluster = new L.markerClusterGroup({
-			//showCoverageOnHover: false
+	function getBaseTiles(){
+           
+		//CartoDB Positron (default base layer)
+		var cartoDBLight = L.tileLayer('http://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
+		}).addTo(map);
+			
+		//CartoDB Dark Matter
+		var cartoDBDark = L.tileLayer('http://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+			attribution: '<a href="http://www.blue-granite.com">BlueGranite</a> | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://cartodb.com/attributions">CartoDB</a>'
 		});
+
+		//Intentionally blank to display data only
+		var emptyTile = L.tileLayer('', {
+			attribution: '<a href="http://www.blue-granite.com">BlueGranite</a>'
+		});
+
+		//add layers to baseTileType to include in layer switcher
+		var baseTileType = {
+			"Light": cartoDBLight,
+			"Dark": cartoDBDark,
+			"None": emptyTile
+		};
+
+		return baseTileType;
+	};
+	
+	//get base tiles
+	var baseTiles = getBaseTiles();
+	
+	//layer switcher
+	L.control.layers(baseTiles).addTo(map);
+	//legend
+	map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+	function polygonStyle(){
+	    return {
+			fillColor: '#587abc',
+			weight: 2,
+			opacity: 0.5,
+			color: 'white',
+			dashArray: '1',
+			fillOpacity: 0.3
+		}
+	};
+	
+	//add polygon overlay
+	L.geoJson(dcAreas, {style: polygonStyle}).addTo(map);
+	
+	//create cluster group
+	var cluster = new L.markerClusterGroup({
+		//showCoverageOnHover: false
+	});
+	
+	function getMarkerProperties(measure){
+		var measureProperties = {};
 		
-		function getMarkerProperties(measure){
-			var measureProperties = {};
-			
-			if(measure <= 50){
-				measureProperties.color = '#01b8aa';
-				measureProperties.radius = 10;
-			}
-			else if(measure <= 250){
-				measureProperties.color = '#3599b8';
-				measureProperties.radius = 13;
-			}
-			else if(measure <= 1000){
-				measureProperties.color = '#f2c80f';
-				measureProperties.radius = 16;
-			}
-			else if(measure <= 2500){
-				measureProperties.color = '#fe9666';
-				measureProperties.radius = 19;
-			}
-			else {
-				measureProperties.color = '#fd625e';
-				measureProperties.radius = 22;
-			}
-			
-			return measureProperties;
+		if(measure <= 50){
+			measureProperties.color = '#01b8aa';
+			measureProperties.radius = 10;
+		}
+		else if(measure <= 250){
+			measureProperties.color = '#3599b8';
+			measureProperties.radius = 13;
+		}
+		else if(measure <= 1000){
+			measureProperties.color = '#f2c80f';
+			measureProperties.radius = 16;
+		}
+		else if(measure <= 2500){
+			measureProperties.color = '#fe9666';
+			measureProperties.radius = 19;
+		}
+		else {
+			measureProperties.color = '#fd625e';
+			measureProperties.radius = 22;
 		}
 		
-		//add circle markers to group
-		var geojson = L.geoJson(dcOutages, {
-			pointToLayer: function (feature, geometry) {
-				var markerProperties = getMarkerProperties(feature.properties.NumberOfCustomersAffected);
-				var marker = L.circleMarker([geometry.lat, geometry.lng], {
-					color: '#587abc',
-					opacity: 0.5,
-					fillColor: markerProperties.color,
-					fillOpacity: 0.9,
-					radius: markerProperties.radius
-				});
+		return measureProperties;
+	}
+	
+	//add circle markers to group
+	var geojson = L.geoJson(dcOutages, {
+		pointToLayer: function (feature, geometry) {
+			var markerProperties = getMarkerProperties(feature.properties.NumberOfCustomersAffected);
+			var marker = L.circleMarker([geometry.lat, geometry.lng], {
+				color: '#587abc',
+				opacity: 0.5,
+				fillColor: markerProperties.color,
+				fillOpacity: 0.9,
+				radius: markerProperties.radius
+			});
 
-				var content = '<table>';
-				var keys = Object.keys(feature.properties);
-				for (var i = 0; i < keys.length; i++) {
-					content += '<tr><td>' + keys[i] + '</td>' +
-							   '<td>' + feature.properties[keys[i]] + '</td></tr>';
-				}
-				content += '</table>';
-
-				marker.bindPopup(content);
-				cluster.addLayer(marker);
-				return marker;
+			var content = '<table>';
+			var keys = Object.keys(feature.properties);
+			for (var i = 0; i < keys.length; i++) {
+				content += '<tr><td>' + keys[i] + '</td>' +
+						   '<td>' + feature.properties[keys[i]] + '</td></tr>';
 			}
-		});
-		
-		map.addLayer(cluster);
-		
-		//re-center map to data
-		var markerBounds = cluster.getBounds();
+			content += '</table>';
+
+			marker.bindPopup(content);
+			cluster.addLayer(marker);
+			return marker;
+		}
+	});
+	
+	map.addLayer(cluster);
+	
+	//re-center map to data
+	var markerBounds = cluster.getBounds();
         map.fitBounds(markerBounds);
 
     </script>
