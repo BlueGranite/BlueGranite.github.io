@@ -21,15 +21,16 @@
 	  font-family: Arial, Helvetica, Verdana;
 	}
 	
-	.legend label,
-	.legend span {
-	  display:block;
-	  float:left;
-	  height:15px;
-	  width:20%;
-	  text-align:center;
-	  font-size:9px;
-	  color:#808080;
+	.legend {
+	    line-height: 18px;
+	    color: #555;
+	}
+	.legend i {
+	    width: 18px;
+	    height: 18px;
+	    float: left;
+	    margin-right: 8px;
+	    opacity: 0.7;
 	}
 
     </style>
@@ -37,22 +38,7 @@
   <body>
 
     <div id="map"></div>
-    /*  	
-    <div id='legend' style='display:none;'>
-      	<strong>Number of Customers Affected</strong>
-      	<nav class='legend clearfix'>
-      	<span style='background:#01b8aa;'></span>
-      	<span style='background:#3599b8;'></span>
-      	<span style='background:#f2c80f;'></span>
-      	<span style='background:#fe9666;'></span>
-      	<span style='background:#fd625e;'></span>
-      	<label>0 to 50</label>
-      	<label>51 to 250</label>
-      	<label>251 to 1,000</label>
-      	<label>1,001 to 2,500</label>
-      	<label>2,500+</label>
-    </div>
-    */
+    
     <script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/WashingtonDCOutageSample.js"></script>
     <script src="https://cdn.rawgit.com/deldersveld/datasets/master/geo/wash-dc-areas.js"></script>
     <script>
@@ -174,21 +160,26 @@
 	var markerBounds = cluster.getBounds();
         map.fitBounds(markerBounds);
         
-        var Legend = L.Control.extend({  
-		options: {
-			position: 'bottomright'
-		},
-		
-		onAdd: function (map) {
-		var legend = L.DomUtil.create('div', 'map-legend', L.DomUtil.get('map'));
-		
-		// here we can fill the legend with colors, strings and whatever
-		
-		return legend;
-		}
-	});
+        //add legend
+        var legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
 	
-	map.addControl(new Legend());
+	    var div = L.DomUtil.create('div', 'info legend'),
+	        grades = [50, 250, 1000, 2500, 2501],
+	        labels = [];
+	
+	    // loop through our density intervals and generate a label with a colored square for each interval
+	    for (var i = 0; i < grades.length; i++) {
+	        div.innerHTML +=
+	            '<i style="background:' + getMarkerProperties(grades[i] + 1) + '"></i> ' +
+	            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+	    }
+	
+	    return div;
+	};
+	
+	legend.addTo(map);
 
     </script>
   </body>
