@@ -7,7 +7,7 @@ navbar:
       icon: fa-home
       href: index.html
     - text: "Microsoft R"
-      href: microsoft-r.html
+      href: "https://github.com/BlueGranite/Microsoft-R-Resources"
     - text: "Data Visualization"
       icon: fa-bar-chart
       menu:
