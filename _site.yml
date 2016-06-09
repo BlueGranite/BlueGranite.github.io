@@ -13,7 +13,7 @@ navbar:
       menu:
         - text: "Flex Dashboard"
           icon: fa-dashboard
-          href: leaflet.html
+          href: "https://github.com/BlueGranite/Microsoft-R-Resources"
         - text: "Leaflet"
           icon: fa-map-marker
           href: leaflet.html
