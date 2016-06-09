@@ -8,13 +8,16 @@ navbar:
       href: index.html
     - text: "Microsoft R"
       href: microsoft-r.html
-    - text: "Leaflet"
-      icon: fa-map-marker
+    - text: "Data Visualization"
+      icon: fa-bar-chart
       menu:
+        - text: "Flex Dashboard"
+          icon: fa-dashboard
+          href: leaflet.html
         - text: "Leaflet"
           icon: fa-map-marker
           href: leaflet.html
-
+    
 output:
   html_document:
     theme: cosmo
