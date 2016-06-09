@@ -4,6 +4,7 @@ navbar:
   title: "BlueGranite"
   left:
     - text: "Home"
+      icon: fa-home
       href: index.html
     - text: "Microsoft R"
       href: microsoft-r.html
