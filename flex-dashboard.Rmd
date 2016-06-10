@@ -3,7 +3,9 @@ title: "R flexdashboard Samples"
 output: html_document
 ---
 
-[__Fiji Earthquakes__](http://bluegranite.github.io/FlexDashboards/earthquakes.html)
+>[__flexdashboards__](https://www.rstudio.com/resources/webinars/introducing-flexdashboards) allow users to create R dashboards using Markdown
+
+##[__Fiji Earthquakes__](http://bluegranite.github.io/FlexDashboards/earthquakes.html)
 
 _Fiji Earthquakes_ is a sample R flexdashboard showing data from the R _quakes_ dataset. It uses Leaflet, ThreeJS, and ggvis.
 

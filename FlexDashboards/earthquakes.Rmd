@@ -32,7 +32,7 @@ m
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Quake Depth
+### Quake Magnitude
 
 ```{r}
 quakes %>%
@@ -43,7 +43,7 @@ quakes %>%
   add_axis("y", title = "Earthquakes")
 ```
 
-### Magnitude
+### Depth (km)
 
 ```{r}
 z <- -quakes$depth

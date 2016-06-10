@@ -3,7 +3,9 @@ title: "Leaflet Samples"
 output: html_document
 ---
 
-[__Utility Outage Clusters__](http://bluegranite.github.io/LeafletMaps/wash-dc-outage-cluster.html)
+>[__Leaflet__](http://leafletjs.com) is a JavaScript library for creating interactive maps
+
+##[__Utility Outage Clusters__](http://bluegranite.github.io/LeafletMaps/wash-dc-outage-cluster.html)
 
 _Utility Outage Clusters_ is a Leaflet map showcasing marker clusters. As you zoom out, circle markers that represent individual outages converge into clusters. Outage data was fabricated for twenty outages and represent locations around Washington DC.
 
