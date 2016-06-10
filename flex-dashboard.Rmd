@@ -1,5 +1,5 @@
 ---
-title: "Flex Dashboard Samples"
+title: "R flexdashboard Samples"
 output: html_document
 ---
 
