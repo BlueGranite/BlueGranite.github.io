@@ -1,0 +1,53 @@
+---
+title: "Fiji Earthquakes"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: spacelab
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(leaflet)
+library(threejs)
+library(ggvis)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Quake Clusters
+
+```{r}
+m <- leaflet(data = quakes) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(~long, ~lat, radius = quakes$mag, color="navy", stroke = FALSE, fillOpacity = 0.8, 
+                   clusterOptions = markerClusterOptions())
+m
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Quake Depth
+
+```{r}
+quakes %>%
+  ggvis(~mag) %>%
+  layer_histograms() %>%
+  set_options(height = "auto", width = "auto") %>%
+  add_axis("x", title = "Magnitude") %>%
+  add_axis("y", title = "Earthquakes")
+```
+
+### Magnitude
+
+```{r}
+z <- -quakes$depth
+x <- quakes$long
+y <- quakes$lat
+scatterplot3js(x,y,z, color = "navy", bg = "#cdd2d4", size = quakes$mag,
+               axisLabels = c("Longitude", "Depth (km)", "Latitude"))
+```
+

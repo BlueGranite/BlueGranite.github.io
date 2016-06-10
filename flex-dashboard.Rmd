@@ -2,3 +2,9 @@
 title: "Flex Dashboard Samples"
 output: html_document
 ---
+
+[__Fiji Earthquakes__](http://bluegranite.github.io/FlexDashboards/earthquakes.html)
+
+_Fiji Earthquakes_ is a sample R flexdashboard showing data from the R _quakes_ dataset. It uses Leaflet, ThreeJS, and ggvis.
+
+<iframe src="http://bluegranite.github.io/FlexDashboards/earthquakes.html" width = "100%" height = "500" scrolling="no" frameborder="0"></iframe>

@@ -12,7 +12,7 @@ navbar:
     - text: "Data Visualization"
       icon: fa-bar-chart
       menu:
-        - text: "Flex Dashboard"
+        - text: "flexdashboard"
           icon: fa-dashboard
           href: flex-dashboard.html
         - text: "Leaflet"
