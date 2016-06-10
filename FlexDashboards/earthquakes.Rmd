@@ -35,7 +35,7 @@ Column {data-width=350}
 ```{r}
 quakes %>%
   ggvis(~mag) %>%
-  layer_histograms() %>%
+  layer_histograms(width = 0.5) %>%
   set_options(height = "auto", width = "auto") %>%
   add_axis("x", title = "Magnitude") %>%
   add_axis("y", title = "Earthquakes")
