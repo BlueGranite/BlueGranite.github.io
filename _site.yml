@@ -13,10 +13,8 @@ navbar:
       icon: fa-bar-chart
       menu:
         - text: "flexdashboard"
-          icon: fa-dashboard
           href: flex-dashboard.html
         - text: "Leaflet"
-          icon: fa-map-marker
           href: leaflet.html
     
 output:
