@@ -1,257 +1,235 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Redesigned for BlueGranite by Colby Ford
+-->
+<html>
+	<head>
+		<title>BlueGranite Open Source</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="icon" href="favicon.ico">
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<body>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><img src="images/white-tagline.svg" width=100%></li>
+                            <li><a href="#intro">Welcome</a></li>
+							<li><a href="#one">Visualizations</a></li>
+							<li><a href="#two">Training Repos</a></li>
+							<li><a href="#three">Get in touch</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
 
-<head>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>BlueGranite Open Source</h1>
+							<p>Transforming Your Enterprise through Data, Insights, & Analytics.</p>
+							<ul class="actions">
+								<li><a href="https://www.blue-granite.com/" class="button special" target="_blank">Main Site</a></li>
+                                <li><a href="https://www.blue-granite.com/blog" class="button special" target="_blank">Blog</a></li>
+                                <li><a href="https://www.blue-granite.com/contact-us" class="button special" target="_blank">Contact Us</a></li>
+							</ul>
+                            <h4>This site is compilation of resources for open-source  BlueGranite projects.</h4>
+						</div>
+					</section>
 
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="FlexDashboards/earthquakes.html" class="image" target="_blank"><img src="images/fijiearth.png" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>flexdashboard</h2>
+									<p>flexdashboards allow users to create R dashboards using Markdown. Our example, <i>Fiji Earthquakes</i> is a sample R flexdashboard showing data from the R quakes dataset. It uses Leaflet, ThreeJS, and ggvis.</p>
+									<ul class="actions">
+										<li><a href="flex-dashboard.html" target="_blank" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="LeafletMaps/wash-dc-outage-cluster.html" class="image" target="_blank"><img src="images/leafletmap.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>leaflet</h2>
+									<p>Leaflet is a JavaScript library for creating interactive maps. Our example, <i>Utility Outage Clusters</i> is a Leaflet map showcasing marker clusters. As you zoom out, circle markers that represent individual outages converge into clusters. Outage data was fabricated for twenty outages and represent locations around Washington DC.</p>
+									<ul class="actions">
+										<li><a href="leaflet.html" class="button" target="_blank">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="https://github.com/BlueGranite/pbiHexbinScatterplot" class="image" target="_blank"><img src="https://raw.githubusercontent.com/deldersveld/pbiHexbinScatterplot/master/assets/hexbin1.PNG" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Hexbin Scatterplot for Power BI</h2>
+									<p>The Hexbin Scatterplot is a custom visual for Microsoft Power BI that displays points on top of hexagonal "bins". Color saturation for the hexbins shows the density of points within each bin, with darker bins showing more points.</p>
+									<ul class="actions">
+										<li><a href="https://github.com/BlueGranite/pbiHexbinScatterplot" class="button" target="_blank">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        <section>
+							<a href="https://github.com/BlueGranite/rDataTable" class="image" target="_blank"><img src="https://github.com/deldersveld/rDataTable/raw/master/images/rDataTable.PNG" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>rDataTable</h2>
+									<p>Based on the DT package, rDataTable is an interactive Power BI R custom visual that helps you easily explore table data. It is pending approval in the Office Store / AppSource.</p>
+									<ul class="actions">
+										<li><a href="https://github.com/BlueGranite/rDataTable" class="button" target="_blank">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        <section>
+							<a href="https://github.com/BlueGranite/pbiImageTimeline" class="image" target="_blank"><img src="https://raw.githubusercontent.com/deldersveld/pbiImageTimeline/master/assets/timeline.PNG" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Image Timeline for Power BI</h2>
+									<p>The Image Timeline is a custom visual for Microsoft Power BI that displays events along a horizontal timeline. Events appear as either circles or custom images.</p>
+									<ul class="actions">
+										<li><a href="https://github.com/BlueGranite/pbiImageTimeline" class="button" target="_blank">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+					</section>
 
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>Training Repositories</h2>
+							<p>BlueGranite offers training in many areas from data visualization to advanced analytics. Below are the Github repositories that correspond to our training offers.</p>
+                            <ul class="actions">
+								<li><a href="https://www.blue-granite.com/offers" class="button special" target="_blank">View Offers</a></li>
+							</ul>
+							<div class="features">
+								<section>
+									<span class="icon major fa-cog"></span>
+									<h3>Advanced Analytics Workshop</h3>
+									<p>Kick start your advanced analytics practice with a short workshop. Your team will learn new data science skills plus facilitate a brainstorming session around the potential for machine learning and big data in your organization.</p>
+                                    <ul class="actions">
+								    <li><a href="https://github.com/BlueGranite/Advanced-Analytics-Workshop" class="button special fit" target="_blank">Repo</a></li>
+                                    <li><a href="https://www.blue-granite.com/offers" class="button fit" target="_blank">Learn More</a></li>
+							        </ul>
+								</section>
+								<section>
+									<span class="icon major fa-server"></span>
+									<h3>Microsoft ML Server Training</h3>
+									<p>Combine the power of R with parallel computing with Microsoft ML Server. This training will help your team unlock the distributed computing fuctions of the RevoScaleR and MicroftML R packages.</p>
+                                    <ul class="actions">
+								    <li><a href="https://github.com/BlueGranite/BlueGranite-R-Training" class="button special fit" target="_blank">Repo</a></li>
+                                    <li><a href="https://www.blue-granite.com/offers" class="button fit" target="_blank">Learn More</a></li>
+							        </ul>
+								</section>
+								<section>
+									<span class="icon major fa-code"></span>
+									<h3>Python for Data Science Training</h3>
+									<p>Learn Python skills relevant to a data science workflow. From data ingestion, manipulation, visualization, and machine learning, this training helps your team members kick start a strong Python skillset.</p>
+                                    <ul class="actions">
+								    <li><a href="https://github.com/BlueGranite/BlueGranite-Python-Training" class="button special fit" target="_blank">Repo</a></li>
+                                    <li><a href="https://www.blue-granite.com/offers" class="button fit" target="_blank">Learn More</a></li>
+							        </ul>
+								</section>
+                                <section>
+									<span class="icon major fa-bar-chart"></span>
+									<h3>Power BI Training</h3>
+									<p>Through this curriculum based approach with hands-on labs and in-person guidance, attendees will be able to build and share stunning visualizations and valuable data insights quickly and easily with Power BI.</p>
+                                    <ul class="actions">
+								    <li><a href="https://www.blue-granite.com/power-bi-training" class="button special fit" target="_blank">Repo</a></li>
+                                    <li><a href="https://www.blue-granite.com/power-bi-training" class="button fit" target="_blank">Learn More</a></li>
+							        </ul>
+								</section>
+							</div>
+						</div>
+					</section>
 
+				<!-- Three -->
+					<section id="three" class="wrapper style1 fade-up">
+						<div class="inner">
+							<div class="split style1">
+								<section>
+                                    <h2>We strive to be the best data and analytics consulting firm in the industry.</h2>
 
-<title>BlueGranite Public Demos and Resources</title>
+                                    <p>We provide architecture, design, development, training and support for both mid-market and enterprise clients across the U.S. BlueGranite’s “think big, but start small” philosophy helps our clients embrace data as a strategic asset. With our unique framework, we create roadmaps, build solutions, and deliver value across organizations.</p>
+                                    <p>Our “let’s get real” approach helps you easily identify issues and solve them with a variety of Cloud Analytics solutions, from predictive analytics and machine learning, to data lakes and self-service BI.</p>
+                                    <br>
+                                    <p>Contact us today and we'll be happy to help!</p>
+                                    <ul class="actions">
+                                        <li><a href="https://www.blue-granite.com/contact-us" class="button scrolly" target="_blank">Contact Us</a></li>
+							         </ul>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Address</h3>
+											<span>2750 Old Centre Rd Ste 150<br />
+											Portage, MI 49024<br />
+											USA</span>
+										</li>
+										<li>
+											<h3><a href="https://binged.it/2ryj1iA" class="button special" target="_blank">Get Directions</a></h3>
+										</li>
+										<li>
+											<h3>Phone</h3>
+											<span><a href="tel:18778170736">(877) 817-0736</a></span>
+										</li>
+										<li>
+											<h3>Social</h3>
+											<ul class="icons">
+												<li><a href="https://twitter.com/bluegraniteinc" class="fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+												<li><a href="https://github.com/BlueGranite" class="fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+												<li><a href="https://www.linkedin.com/company/bluegranite" class="fa-linkedin"><span class="label" target="_blank">LinkedIn</span></a></li>
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+			</div>
 
-<style type="text/css">code{white-space: pre;}</style>
-<link rel="stylesheet"
-      href="site_libs/highlight/textmate.css"
-      type="text/css" />
-<script src="site_libs/highlight/highlight.js"></script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
-}
-</script>
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+                        <li>&copy; 2017 <a href="https://www.blue-granite.com/" target="_blank">BlueGranite, Inc.</a> All rights reserved.</li>
+                        <li><a href="https://www.blue-granite.com/privacy-policy" target="_blank">Privacy Policy</a></li>
+                        <li>Theme: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
 
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
 
-
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
-
-<link rel="stylesheet" href="styles.css" type="text/css" />
-
-</head>
-
-<body>
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-</style>
-
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
-
-<div class="container-fluid main-container">
-
-<!-- tabsets -->
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
-
-<!-- code folding -->
-
-
-
-
-
-
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">BlueGranite</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">
-    <span class="fa fa-home"></span>
-     
-    Home
-  </a>
-</li>
-<li>
-  <a href="https://github.com/BlueGranite/Microsoft-R-Resources">
-    <span class="fa fa-github"></span>
-     
-    Microsoft R
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa-bar-chart"></span>
-     
-    Data Visualization
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="flex-dashboard.html">flexdashboard</a>
-    </li>
-    <li>
-      <a href="leaflet.html">Leaflet</a>
-    </li>
-  </ul>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
-
-<div class="fluid-row" id="header">
-
-
-
-<h1 class="title toc-ignore">BlueGranite Public Demos and Resources</h1>
-
-</div>
-
-
-<p>A compilation of resources for BlueGranite open-source projects.</p>
-
-<p>Copyright &copy; 2016 <a href="http://www.blue-granite.com">BlueGranite, Inc</a>. All rights reserved.</p>
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
-
-</script>
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-</body>
+	</body>
 </html>
