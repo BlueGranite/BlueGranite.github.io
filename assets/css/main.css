@@ -1641,7 +1641,7 @@
 
 	body, input, select, textarea {
 		color: rgba(255, 255, 255, 0.55);
-		font-family: 'Montserrat', sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		font-size: 16.5pt;
 		font-weight: normal;
 		line-height: 1.75;
@@ -3888,7 +3888,7 @@
 		background-image: url("images/bgwallpaper.png");
 		background-position: bottom right;
 		background-repeat: no-repeat;
-		background-size: auto;
+		background-size: 50% auto;
 	}
 
 		#intro p {
