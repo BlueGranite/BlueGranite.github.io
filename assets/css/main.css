@@ -2553,38 +2553,38 @@
 			display: block;
 			background: #ffffff;
 			border-radius: 100%;
-			color: #312450;
+			color: #007cba;
 			text-align: center;
 			line-height: 2.5em;
 			margin: 0 0 1.3em 0;
 		}
 
 			.icon.major:before {
-				font-size: 1.25em;
+				font-size: 1.5em;
 			}
 
 				.wrapper.style1 .icon.major:before {
-					color: #5e42a6;
+					color: #007cba;
 				}
 
 				.wrapper.style1-alt .icon.major:before {
-					color: #493382;
+					color: #58595b;
 				}
 
 				.wrapper.style2 .icon.major:before {
-					color: #5052b5;
+					color: #007cba;
 				}
 
 				.wrapper.style2-alt .icon.major:before {
-					color: #3e4094;
+					color: #007cba;
 				}
 
 				.wrapper.style3 .icon.major:before {
-					color: #b74e91;
+					color: #007cba;
 				}
 
 				.wrapper.style3-alt .icon.major:before {
-					color: #953d75;
+					color: #007cba;
 				}
 
 /* Image */
